@@ -14,19 +14,8 @@ public class Main {
     public static void main(String[] args) {
 
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
-        String[] persons = context.getBeanNamesForType(Person.class);
+        System.out.println("Before retrieving Person Bean");
         Person person = context.getBean(Person.class);
-        String[] vehicles = context.getBeanNamesForType(Vehicle.class);
-        Vehicle vehicle = context.getBean(Vehicle.class);
-        vehicle.getVehicleServices().playMusic();
-        vehicle.getVehicleServices().moveVehicle();
-
-        VehicleServices v1 = context.getBean(VehicleServices.class);
-        VehicleServices v2 = context.getBean("vehicleServices",VehicleServices.class);
-
-        System.out.println(v1.hashCode());
-        System.out.println(v2.hashCode());
-
-        person.getVehicle().getVehicleServices().playMusic();
+        System.out.println("After retrieving Person Bean");
     }
 }
