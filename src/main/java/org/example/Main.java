@@ -14,8 +14,10 @@ public class Main {
     public static void main(String[] args) {
 
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
-        System.out.println("Before retrieving Person Bean");
-        Person person = context.getBean(Person.class);
-        System.out.println("After retrieving Person Bean");
+        VehicleServices vs1 = context.getBean(VehicleServices.class);
+        VehicleServices vs2 = context.getBean(VehicleServices.class);
+
+        System.out.println("해시코드 of vs1 : " + vs1.hashCode());
+        System.out.println("해시코드 of vs2 : " + vs2.hashCode());
     }
 }
